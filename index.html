@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robotics & AI Club — 2025</title>
+  <meta name="description" content="Robotics & AI Club — University single-page site with 3D vibes, GSAP animations, neon UI, and interactive elements." />
+
+  <!-- Colors -->
+  <!-- Primary: Light Green #90EE90 | Dark Teal #003B4D | Neon Blue #00F5FF -->
+
+  <!-- Fonts: Satoshi (via Fontshare), JetBrains Mono (Google) -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Icons -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="style.css"/>
+
+  
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <!-- Minimal robot/brain glyph -->
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1">
+              <stop offset="0%" stop-color="#90EE90"/>
+              <stop offset="100%" stop-color="#00F5FF"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="8" width="18" height="12" rx="3" fill="none" stroke="url(#g)"/>
+          <circle cx="34" cy="16" r="8" fill="none" stroke="url(#g)"/>
+          <circle cx="10" cy="30" r="3" fill="#90EE90"/>
+          <circle cx="26" cy="30" r="3" fill="#00F5FF"/>
+          <path d="M10 20v7M26 20v7" stroke="#90EE90"/>
+        </svg>
+        <span class="mono" style="color:#CFFCEE">Robotics & AI Club</span>
+      </div>
+      <nav class="mono">
+        <a href="#about">About</a>
+        <a href="#partners">Partners</a>
+        <a href="#events">Events</a>
+        <a href="#team">Team</a>
+        <a href="#projects">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home" aria-label="Hero">
+    <div class="hero-bg"></div>
+    <div class="hero-space"></div>
+    <div class="bits" id="bits"></div>
+
+    <div class="hero-inner container">
+      <span class="pill mono glow">University Robotics & Artificial Intelligence</span>
+      <div class="title-wrap">
+        <h1 class="holo" id="title">ROBOTICS & AI CLUB</h1>
+      </div>
+      <p class="sub" style="max-width:720px">Building embodied intelligence & ethical AI—hands-on, open-source, community powered.</p>
+
+      <button class="cta soft-glow" id="joinBtn">
+        <span class="txt">Learn More</span>
+      </button>
+
+      <div class="lab-stage" aria-hidden="true">
+        <!-- Futuristic lab scene with a robotic arm assembling a neural "brain" -->
+        <svg viewBox="0 0 1200 650">
+          <defs>
+            <radialGradient id="glowBrain" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#00F5FF" stop-opacity=".9"/>
+              <stop offset="70%" stop-color="#00F5FF" stop-opacity=".15"/>
+              <stop offset="100%" stop-color="#00F5FF" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="metal" x1="0" x2="1">
+              <stop offset="0%" stop-color="#B5FFF6"/>
+              <stop offset="100%" stop-color="#90EE90"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Table -->
+          <ellipse cx="600" cy="590" rx="440" ry="40" fill="#001D25" stroke="#00F5FF" stroke-opacity=".25"/>
+
+          <!-- Brain (neural mesh) -->
+          <g id="brain" transform="translate(600 300)">
+            <circle r="120" fill="url(#glowBrain)"/>
+            <g fill="none" stroke="#90EE90" stroke-opacity=".6">
+              <ellipse rx="140" ry="50"/>
+              <ellipse rx="120" ry="80" transform="rotate(30)"/>
+              <ellipse rx="100" ry="70" transform="rotate(-30)"/>
+              <circle r="40"/>
+            </g>
+            <!-- nodes -->
+            <g fill="#BFFFF4">
+              <circle r="6" cx="0" cy="-80"/>
+              <circle r="5" cx="70" cy="-10"/>
+              <circle r="4" cx="-60" cy="20"/>
+              <circle r="5" cx="-20" cy="70"/>
+              <circle r="4" cx="40" cy="60"/>
+            </g>
+          </g>
+
+        
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="about section" id="about">
+    <div class="container nn-wrap">
+      <div>
+        <h2 class="h2">About Us</h2>
+        <div class="sep"> </div>
+        <p class="type mono" id="typewriter" aria-live="polite"></p>
+        <span class="blink" aria-hidden="true">&nbsp;</span>
+      </div>
+      <div>
+        <!-- Animated SVG neural network graph -->
+        <svg id="nn" class="glow" viewBox="0 0 520 360">
+          <defs>
+            <radialGradient id="nng" cx="50%" cy="50%" r="60%">
+              <stop offset="0%" stop-color="#00F5FF" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#00F5FF" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="100%" height="100%" fill="#001921" rx="18"/>
+          <!-- layers -->
+          <g stroke="#00F5FF" stroke-opacity=".35" fill="none">
+            <g id="l1">
+              <circle cx="70" cy="60" r="6" fill="#90EE90"/>
+              <circle cx="70" cy="140" r="6" fill="#90EE90"/>
+              <circle cx="70" cy="220" r="6" fill="#90EE90"/>
+              <circle cx="70" cy="300" r="6" fill="#90EE90"/>
+            </g>
+            <g id="l2">
+              <circle cx="200" cy="40" r="5"/>
+              <circle cx="200" cy="120" r="5"/>
+              <circle cx="200" cy="200" r="5"/>
+              <circle cx="200" cy="280" r="5"/>
+            </g>
+            <g id="l3">
+              <circle cx="340" cy="80" r="5"/>
+              <circle cx="340" cy="160" r="5"/>
+              <circle cx="340" cy="240" r="5"/>
+            </g>
+            <g id="l4">
+              <circle cx="450" cy="170" r="7" fill="url(#nng)"/>
+            </g>
+            <!-- connections -->
+            <g id="edges"></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+   <!-- ===================== PARTNERS ===================== -->
+  <section class="partners section" id="partners">
+    <div class="container">
+      <h2 class="h2">Partners</h2>
+      <p class="sub">We collaborate with university departments, labs, and industry pioneers.</p>
+      <div class="partners-grid">
+        <div class="partner-card">
+          <div class="partner-logo">
+            <svg viewBox="0 0 80 80">
+              <img src="AddisAbabaUni.png" alt="Addis Ababa University Logo" width="100px" height="100px"/>
+            </svg>
+          </div>
+          <h3>Addis Ababa University</h3>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo">
+            <svg viewBox="0 0 100 100">
+                          <img src="EthioRobo.png" alt="Addis Ababa University Logo" width="100px" height="100px"/>
+ 
+            </svg>
+          </div>
+          <h3>Ethio RoboRobotics</h3>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo">
+            <svg viewBox="0 0 100 100">
+                           <img src="Nerd.png" alt="Addis Ababa University Logo" width="100px" height="100px"/>
+
+            </svg>
+          </div>
+          <h3>Nerd Lab</h3>
+        </div>
+        <div class="partner-card">
+          <div class="partner-logo">
+            <svg viewBox="0 0 100 100">
+                           <img src="Ethioadvise.png" alt="Addis Ababa University Logo" width="100px" height="100px"/>
+  
+            </svg>
+          </div>
+          <h3>Ethioadvise</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== EVENTS ===================== -->
+  <section class="section" id="events">
+    <div class="container">
+      <h2 class="h2">Events</h2>
+      <p class="sub">Hover cards to reveal details • Workshops, hackathons, demos.</p>
+      <div class="timeline">
+        <!-- Example events -->
+        <article class="event">
+          <div class="poster"></div>
+          <h3 class="h3">VEX Opening <span class="pill mono">Jan 15, 2025</span></h3>
+          <p class="sub"> The opening ceremony for the VEX competition aimed to create awareness about the rules and objectives of the event. Participants gathered to learn essential guidelines and strategies to enhance their robotics skills.
+          </p>
+        </article>
+        <article class="event">
+          <div class="poster"></div>
+          <h3 class="h3"> AI Hackathon <span class="pill mono">Oct 18–19, 2025</span></h3>
+          <p class="sub">Quantization, model compression, and real-time inference challenges.
+            <span class="mono">Icon: ⌬ Chip</span>
+          </p>
+        </article>
+        <article class="event">
+          <div class="poster"></div>
+          <h3 class="h3">Vex Closing Game <span class="pill mono">Nov 30, 2025</span></h3>
+          <p class="sub">The closing ceremony held at the Science Museum in 4K was a grand celebration, drawing students from across Ethiopia who participated in the VEX Robotics competition.This event marked the culmination of weeks of hard work, creativity, and teamwork.
+            <span class="mono">Icon: 🤖</span>
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TEAM ===================== -->
+  <section class="section" id="team">
+    <div class="container">
+      <h2 class="h2">Team</h2>
+      <p class="sub">Student researchers, builders, and designers — powered by curiosity.</p>
+      <div class="team-grid">
+        <!-- Repeatable card pattern -->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-face">
+              <div class="avatar" style="background: conic-gradient(from 0deg, #90EE90, #00F5FF, #90EE90);"></div>
+              <h3 class="h3">Alex Kim</h3>
+              <p class="sub">President • Systems</p>
+            </div>
+            <div class="card-face back">
+              <h3 class="h3">Alex Kim</h3>
+              <p class="mono">ROS2 • C++ • Model-Based Control</p>
+              <p class="mono">ex-Intern @ RoboCorp</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-face">
+              <div class="avatar" style="background: radial-gradient(circle at 30% 30%, #90EE90, transparent 60%), radial-gradient(circle at 70% 70%, #00F5FF, transparent 60%), #01232C;"></div>
+              <h3 class="h3">Priya N.</h3>
+              <p class="sub">VP • AI/ML</p>
+            </div>
+            <div class="card-face back">
+              <h3 class="h3">Priya N.</h3>
+              <p class="mono">Transformers • Diffusion • RL</p>
+              <p class="mono">Research @ Vision Lab</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-face">
+              <div class="avatar" style="background: linear-gradient(135deg, #00F5FF, #90EE90);"></div>
+              <h3 class="h3">Diego S.</h3>
+              <p class="sub">Hardware Lead</p>
+            </div>
+            <div class="card-face back">
+              <h3 class="h3">Diego S.</h3>
+              <p class="mono">CAD • Mechatronics • Power</p>
+              <p class="mono">Fabrication @ MakerSpace</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-face">
+              <div class="avatar" style="background: radial-gradient(circle at 50% 50%, #90EE90, #00F5FF);"></div>
+              <h3 class="h3">Sara L.</h3>
+              <p class="sub">Operations</p>
+            </div>
+            <div class="card-face back">
+              <h3 class="h3">Sara L.</h3>
+              <p class="mono">Sponsorships • Events • Ops</p>
+              <p class="mono">Community @ Campus</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- ===================== COURSES & PROJECTS ===================== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="h2">Courses & Projects</h2>
+      <p class="sub">Explore research builds, course kits, and open-source repos.</p>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="courses">Courses</button>
+<button class="tab-btn" data-tab="projects-content">Projects</button>      </div>
+      
+      <div class="tab-content active" id="courses">
+        <div class="grid proj-grid">
+          <article class="proj">
+            <div class="thumb3d">
+              <svg viewBox="0 0 320 180" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="aiGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#90EE90"/>
+                    <stop offset="100%" stop-color="#00F5FF"/>
+                  </linearGradient>
+                </defs>
+                <rect x="60" y="40" width="200" height="100" rx="14" fill="none" stroke="url(#aiGrad)" stroke-width="3"/>
+                <path d="M90,90 L230,90 M90,120 L230,120 M90,60 L230,60" stroke="url(#aiGrad)" stroke-width="3"/>
+                <circle cx="70" cy="90" r="8" fill="url(#aiGrad)"/>
+                <circle cx="70" cy="60" r="8" fill="url(#aiGrad)"/>
+                <circle cx="70" cy="120" r="8" fill="url(#aiGrad)"/>
+              </svg>
+            </div>
+            <div class="actions">
+              <div>
+                <h3 class="h3">AI Fundamentals</h3>
+                <p class="sub">Introduction to machine learning and neural networks</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="thumb3d">
+              <svg viewBox="0 0 320 180" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="robotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00F5FF"/>
+                    <stop offset="100%" stop-color="#90EE90"/>
+                  </linearGradient>
+                </defs>
+                <rect x="80" y="60" width="160" height="80" rx="10" fill="none" stroke="url(#robotGrad)" stroke-width="3"/>
+                <circle cx="120" cy="100" r="15" fill="none" stroke="url(#robotGrad)" stroke-width="3"/>
+                <circle cx="200" cy="100" r="15" fill="none" stroke="url(#robotGrad)" stroke-width="3"/>
+                <rect x="110" y="130" width="20" height="30" rx="5" fill="none" stroke="url(#robotGrad)" stroke-width="2"/>
+                <rect x="190" y="130" width="20" height="30" rx="5" fill="none" stroke="url(#robotGrad)" stroke-width="2"/>
+                <path d="M140,60 L140,40 M180,60 L180,40" stroke="url(#robotGrad)" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="actions">
+              <div>
+                <h3 class="h3">Robotics Engineering</h3>
+                <p class="sub">From mechanics to autonomous systems</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="thumb3d">
+              <svg viewBox="0 0 320 180" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="droneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#90EE90"/>
+                    <stop offset="100%" stop-color="#00F5FF"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="160" cy="90" r="40" fill="none" stroke="url(#droneGrad)" stroke-width="3"/>
+                <path d="M160,50 L160,30 M160,130 L160,150 M130,90 L110,90 M190,90 L210,90" stroke="url(#droneGrad)" stroke-width="2"/>
+                <circle cx="160" cy="90" r="15" fill="none" stroke="url(#droneGrad)" stroke-width="2"/>
+                <path d="M140,70 L180,110 M140,110 L180,70" stroke="url(#droneGrad)" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="actions">
+              <div>
+                <h3 class="h3">Drone Programming</h3>
+                <p class="sub">Autonomous flight and computer vision</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      
+      <div class="tab-content" id="projects-content">
+        <div class="grid proj-grid">
+          <article class="proj">
+            <div class="thumb3d">
+              <svg viewBox="0 0 320 180" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="vexGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00F5FF"/>
+                    <stop offset="100%" stop-color="#90EE90"/>
+                  </linearGradient>
+                </defs>
+                <rect x="80" y="70" width="160" height="60" rx="8" fill="none" stroke="url(#vexGrad)" stroke-width="3"/>
+                <rect x="100" y="90" width="40" height="20" rx="4" fill="none" stroke="url(#vexGrad)" stroke-width="2"/>
+                <rect x="180" y="90" width="40" height="20" rx="4" fill="none" stroke="url(#vexGrad)" stroke-width="2"/>
+                <circle cx="100" cy="130" r="15" fill="none" stroke="url(#vexGrad)" stroke-width="2"/>
+                <circle cx="220" cy="130" r="15" fill="none" stroke="url(#vexGrad)" stroke-width="2"/>
+                <path d="M90,70 L70,40 M230,70 L250,40" stroke="url(#vexGrad)" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="actions">
+              <div>
+                <h3 class="h3">VEX Robotics Competition</h3>
+                <p class="sub">Our championship-winning robot design</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="thumb3d">
+              <svg viewBox="0 0 320 180" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="droneProjGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#90EE90"/>
+                    <stop offset="100%" stop-color="#00F5FF"/>
+                  </linearGradient>
+                </defs>
+                <path d="M160,80 Q200,40 240,80 T320,80 L280,120 Q240,160 200,120 L160,80 Z" fill="none" stroke="url(#droneProjGrad)" stroke-width="3"/>
+                <circle cx="160" cy="100" r="8" fill="url(#droneProjGrad)"/>
+                <path d="M160,100 L160,140 M140,120 L180,120" stroke="url(#droneProjGrad)" stroke-width="2"/>
+                <circle cx="240" cy="100" r="5" fill="url(#droneProjGrad)"/>
+                <circle cx="200" cy="120" r="5" fill="url(#droneProjGrad)"/>
+                <circle cx="280" cy="100" r="5" fill="url(#droneProjGrad)"/>
+              </svg>
+            </div>
+            <div class="actions">
+              <div>
+                <h3 class="h3">Autonomous Delivery Drone</h3>
+                <p class="sub">AI-powered package delivery system</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="proj">
+            <div class="thumb3d">
+              <svg viewBox="0 0 320 180" style="width:100%;height:100%">
+                <defs>
+                  <linearGradient id="aiProjGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00F5FF"/>
+                    <stop offset="100%" stop-color="#90EE90"/>
+                  </linearGradient>
+                </defs>
+                <rect x="100" y="60" width="120" height="80" rx="10" fill="none" stroke="url(#aiProjGrad)" stroke-width="3"/>
+                <path d="M120,80 L200,80 M120,100 L200,100 M120,120 L200,120" stroke="url(#aiProjGrad)" stroke-width="2"/>
+                <circle cx="110" cy="80" r="5" fill="url(#aiProjGrad)"/>
+                <circle cx="110" cy="100" r="5" fill="url(#aiProjGrad)"/>
+                <circle cx="110" cy="120" r="5" fill="url(#aiProjGrad)"/>
+                <path d="M220,80 L240,60 M220,100 L240,100 M220,120 L240,140" stroke="url(#aiProjGrad)" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="actions">
+              <div>
+                <h3 class="h3">AI Vision System</h3>
+                <p class="sub">Real-time object recognition for robots</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container" style="text-align:center">
+      <svg class="circuit" viewBox="0 0 1000 200">
+        <g fill="none" stroke="#00F5FF" stroke-opacity=".5" stroke-width="2">
+          <path d="M20,100 H200 q30,0 30,-30 V40 h80 v50 q0,30 30,30 h120 q30,0 30,-30 V40 h80 v50 q0,30 30,30 h120 q30,0 30,-30 V40 h80 v50 q0,30 30,30 h100"/>
+          <circle cx="200" cy="100" r="6" fill="#90EE90"/>
+          <circle cx="460" cy="100" r="6" fill="#90EE90"/>
+          <circle cx="700" cy="100" r="6" fill="#90EE90"/>
+        </g>
+      </svg>
+      <div class="socials">
+        <a href="#" aria-label="GitHub"><span class="mono">GH</span></a>
+        <a href="#" aria-label="Discord"><span class="mono">DS</span></a>
+        <a href="#" aria-label="YouTube"><span class="mono">YT</span></a>
+        <a href="#" aria-label="Email"><span class="mono">@</span></a>
+      </div>
+      <p class="sub" style="margin-top:12px">© 2025 Robotics & AI Club — All Rights Reserved</p>
+    </div>
+  </footer>
+  <!-- ===================== JS ===================== -->
+  <script src="script.js" ></script>
+   
+  
+</body>
+</html>
