@@ -11,6 +11,7 @@
 
   <!-- Fonts: Satoshi (via Fontshare), JetBrains Mono (Google) -->
   <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- GSAP + ScrollTrigger -->
@@ -67,11 +68,10 @@
       <p class="sub" style="max-width:720px">Building embodied intelligence & ethical AI—hands-on, open-source, community powered.</p>
 
       <button class="cta soft-glow" id="joinBtn">
-        <span class="txt">Learn More</span>
+        <span class="txt">Join Now</span>
       </button>
 
       <div class="lab-stage" aria-hidden="true">
-        <!-- Futuristic lab scene with a robotic arm assembling a neural "brain" -->
         <svg viewBox="0 0 1200 650">
           <defs>
             <radialGradient id="glowBrain" cx="50%" cy="50%" r="60%">
@@ -106,12 +106,81 @@
               <circle r="4" cx="40" cy="60"/>
             </g>
           </g>
-
-        
         </svg>
       </div>
     </div>
   </section>
+
+  <!-- ===================== REGISTRATION SECTION ===================== -->
+  <section class="section registration-section" id="register">
+    <div class="container">
+      <h2 class="h2">Join The Innovation</h2>
+      <p class="sub">Be part of the future. Register for club membership and upcoming events.</p>
+      
+      <div class="registration-grid">
+        <!-- Club Registration Card -->
+        <div class="registration-card">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h3 class="card-title">Club Membership</h3>
+          <span class="status-badge status-active">Active Now</span>
+          <p class="card-description">Join our community of innovators and gain access to workshops, resources, and collaborative projects.</p>
+          <button class="register-btn btn-active" id="clubRegisterBtn">
+            <i class="fas fa-rocket"></i> Register Now
+          </button>
+          <div class="holographic-effect"></div>
+        </div>
+        
+        <!-- VEX Robotics Registration Card -->
+        <div class="registration-card">
+          <div class="card-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="card-title">VEX Robotics Competition</h3>
+          <span class="status-badge status-coming">Coming Soon</span>
+          <p class="card-description">Compete in the ultimate robotics challenge. Registration opens soon for the 2025 season.</p>
+          <button class="register-btn btn-inactive">
+            <i class="fas fa-clock"></i> Coming Soon
+          </button>
+          
+         
+          
+          <div class="holographic-effect"></div>
+        </div>
+      </div>
+      
+      <!-- Floating particles background -->
+      <div class="floating-particles" id="particles"></div>
+    </div>
+  </section>
+
+  <!-- Registration Modal -->
+  <div class="modal" id="registrationModal">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModal">&times;</button>
+      <h2 class="modal-title">Club Registration</h2>
+      <form id="registrationForm">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="major">Major/Field of Study</label>
+          <input type="text" id="major" required>
+        </div>
+        <div class="form-group">
+          <label for="interest">Primary Interest</label>
+          <input type="text" id="interest" placeholder="Robotics, AI, Computer Vision, etc." required>
+        </div>
+        <button type="submit" class="submit-btn">Submit Registration</button>
+      </form>
+    </div>
+  </div>
 
   <!-- ===================== ABOUT ===================== -->
   <section class="about section" id="about">
@@ -469,9 +538,9 @@
               </div>
               <p class="sub">Community @ Campus. Manages sponsorships, events, and day-to-day operations.</p>
               <div class="member-social">
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/hayat-ahmedjara-5431592a1/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Hayat373" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:hayahmam3@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
               </div>
             </div>
           </div>
@@ -527,9 +596,9 @@
               </div>
               <p class="sub">Passionate about developing AI projects and organizing events to engage students in technology.</p>
               <div class="member-social">
-                <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                 <a href="https://www.linkedin.com/in/hayat-ahmedjara-5431592a1/" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Hayat373" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:hayahmam3@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
               </div>
             </div>
           </div>

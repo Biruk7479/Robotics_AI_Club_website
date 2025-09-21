@@ -155,3 +155,145 @@ tabBtns.forEach(btn => {
         particlesContainer.appendChild(particle);
       }
     });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Create floating particles
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        
+        // Random size
+        const size = 2 + Math.random() * 3;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random animation delay
+        particle.style.animationDelay = `${Math.random() * 15}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+
+      // Parallax effect on title
+      const title = document.getElementById('title');
+      document.addEventListener('mousemove', (e) => {
+        const cx = window.innerWidth/2, cy = window.innerHeight/2;
+        const dx = (e.clientX - cx)/cx, dy = (e.clientY - cy)/cy;
+        title.style.transform = `rotateY(${dx*8}deg) rotateX(${dy*-6}deg)`;
+      });
+
+      // CTA button effect
+      const cta = document.getElementById('joinBtn');
+      cta.addEventListener('click', (e)=>{
+        const r = document.createElement('span');
+        r.className = 'ripple';
+        const rect = cta.getBoundingClientRect();
+        const d = Math.max(rect.width, rect.height);
+        r.style.width = r.style.height = d + 'px';
+        r.style.left = (e.clientX - rect.left - d/2)+ 'px';
+        r.style.top  = (e.clientY - rect.top  - d/2)+ 'px';
+        cta.appendChild(r);
+        requestAnimationFrame(()=>{
+          r.style.transition = 'transform .6s ease, opacity .8s ease';
+          r.style.transform = 'scale(1)';
+          r.style.opacity = '0';
+        });
+        setTimeout(()=> r.remove(), 800);
+        
+        // Scroll to registration section
+        document.querySelector('#register').scrollIntoView({behavior:'smooth'});
+      });
+
+      // Floating binary bits
+      const bits = document.getElementById('bits');
+      const chars = ['0','1'];
+      for(let i=0;i<90;i++){
+        const s = document.createElement('span');
+        s.className='bit';
+        s.textContent = chars[Math.random()>0.5?1:0];
+        s.style.left = Math.random()*100+'%';
+        s.style.top = Math.random()*100+'%';
+        s.style.fontSize = (10+Math.random()*12)+'px';
+        bits.appendChild(s);
+        const dur = 10 + Math.random()*20;
+        s.animate([
+          { transform:`translateY(0px)`, opacity:.15 },
+          { transform:`translateY(-120px)`, opacity:.4 }
+        ], { duration: dur*1000, iterations: Infinity, direction:'alternate', easing:'ease-in-out', delay:Math.random()*2000});
+      }
+
+      // Modal functionality
+      const modal = document.getElementById('registrationModal');
+      const clubRegisterBtn = document.getElementById('clubRegisterBtn');
+      const closeModal = document.getElementById('closeModal');
+      const form = document.getElementById('registrationForm');
+
+      clubRegisterBtn.addEventListener('click', () => {
+        modal.style.display = 'flex';
+      });
+
+      closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.style.display = 'none';
+        }
+      });
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Registration submitted successfully! We will contact you soon.');
+        modal.style.display = 'none';
+        form.reset();
+      });
+
+      // Countdown timer for VEX registration
+      function updateCountdown() {
+        // Set the date we're counting down to (2 weeks from now)
+        const countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 14);
+        
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").textContent = days.toString().padStart(2, '0');
+        document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+      }
+      
+      // Update the countdown every 1 second
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // GSAP animations
+      gsap.registerPlugin(ScrollTrigger);
+      
+      gsap.utils.toArray('.registration-card').forEach((card) => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 50,
+          duration: 0.8,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: card,
+            start: 'top 85%'
+          }
+        });
+      });
+    });
