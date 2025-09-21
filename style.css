@@ -221,7 +221,8 @@
       height: 120px;
       position: relative;
       margin-bottom: 20px;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      /* clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); */
+      border-radius: 50%;
       background: conic-gradient(from 0deg, #90EE90, #00F5FF, #90EE90);
       display: flex;
       align-items: center;
