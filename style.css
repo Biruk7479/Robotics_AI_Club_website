@@ -38,16 +38,62 @@
     .grid{display:grid;gap:24px}
 
     /* --- NAV (optional minimal) --- */
-    header{
-      position:fixed;inset:0 0 auto;z-index:50;background:linear-gradient(180deg, rgba(0,11,15,.8), rgba(0,11,15,0));
-      border-bottom:1px solid rgba(0,245,255,.08);backdrop-filter: blur(8px);
-    }
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700}
-    .brand svg{width:28px;height:28px}
-    .nav a{margin-left:18px;color:#CFFCEE;opacity:.9}
-    .nav a:hover{opacity:1;text-shadow:0 0 8px rgba(0,245,255,.5)}
+    
+        header{
+            position:fixed;inset:0 0 auto;z-index:50;background:linear-gradient(180deg, rgba(0,11,15,.8), rgba(0,11,15,0));
+            border-bottom:1px solid rgba(0,245,255,.08);backdrop-filter: blur(8px);
+        }
+        .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+        .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+        
+        /* Logo Styles */
+        .logo-container {
+            position: relative;
+            width: 45px;
+            height: 45px;
+        }
 
+        .holographic-logo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(0, 245, 255, 0.4);
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
+        }
+
+        .logo-glow {
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 12px;
+            background: linear-gradient(45deg, 
+                rgba(144, 238, 144, 0.3), 
+                rgba(0, 245, 255, 0.3), 
+                rgba(144, 238, 144, 0.3));
+            filter: blur(8px);
+            opacity: 0.7;
+            z-index: 1;
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .holographic-logo:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .nav a{margin-left:18px;color:#CFFCEE;opacity:.9}
+        .nav a:hover{opacity:1;text-shadow:0 0 8px rgba(0,245,255,.5)}
      /* ===================== HERO ===================== */
     .hero {
       position: relative;
