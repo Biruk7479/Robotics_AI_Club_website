@@ -996,18 +996,181 @@
       background: rgba(0, 245, 255, 0.1);
     }
     
-    /* =============================
-       7) FOOTER — Animated Circuit + Chatbot
-       ============================= */
-    footer{position:relative;padding:48px 0 100px;border-top:1px solid rgba(0,245,255,.15);background:linear-gradient(180deg, rgba(0,245,255,.05), rgba(0,245,255,0))}
-    .circuit{width:100%;max-width:1000px;margin:0 auto 18px;opacity:.9}
-    .socials{display:flex;gap:14px;justify-content:center}
-    .socials a{display:inline-grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid rgba(0,245,255,.25);background:rgba(0,245,255,.06)}
-
-    .bot{position:fixed;right:24px;bottom:24px;width:72px;height:72px;border-radius:50%;background:linear-gradient(180deg, #01232C, #00171D);border:1px solid rgba(0,245,255,.35);
-      display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,245,255,.2);z-index:60;cursor:pointer}
-    .bot:hover .eye{transform:translateX(6px)}
-
+    /* Footer Styles */
+        footer {
+            position: relative;
+            padding: 48px 0 100px;
+            border-top: 1px solid rgba(0, 245, 255, 0.15);
+            background: linear-gradient(180deg, rgba(0, 245, 255, 0.05), rgba(0, 245, 255, 0));
+            overflow: hidden;
+        }
+        
+        .circuit {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto 18px;
+            opacity: 0.9;
+        }
+        
+        /* Animate the circuit */
+        .circuit path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-circuit 8s ease-in-out infinite;
+        }
+        
+        .circuit circle {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes draw-circuit {
+            0% {
+                stroke-dashoffset: 1000;
+            }
+            50% {
+                stroke-dashoffset: 0;
+            }
+            100% {
+                stroke-dashoffset: 1000;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                fill: #90EE90;
+                r: 6;
+            }
+            50% {
+                fill: #00F5FF;
+                r: 8;
+            }
+        }
+        
+        .socials {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .socials a {
+            display: inline-grid;
+            place-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 245, 255, 0.25);
+            background: rgba(0, 245, 255, 0.06);
+            text-decoration: none;
+            color: #00F5FF;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .socials a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .socials a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 245, 255, 0.2);
+            border-color: rgba(0, 245, 255, 0.5);
+            background: rgba(0, 245, 255, 0.1);
+        }
+        
+        .socials a:hover::before {
+            left: 100%;
+        }
+        
+        .socials a.telegram:hover {
+            background: rgba(0, 136, 204, 0.2);
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+        
+        .socials a.linkedin:hover {
+            background: rgba(0, 119, 181, 0.2);
+            border-color: #0077b5;
+            color: #0077b5;
+        }
+        
+        .socials a.email:hover {
+            background: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+            color: #dc3545;
+        }
+        
+        .sub {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+            margin-top: 12px;
+        }
+        
+        /* Chatbot */
+        .bot {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #01232C, #00171D);
+            border: 1px solid rgba(0, 245, 255, 0.35);
+            display: grid;
+            place-items: center;
+            box-shadow: 0 10px 40px rgba(0, 245, 255, 0.2);
+            z-index: 60;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .bot:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(0, 245, 255, 0.3);
+        }
+        
+        .bot-icon {
+            width: 40px;
+            height: 40px;
+            fill: #00F5FF;
+            filter: drop-shadow(0 0 5px rgba(0, 245, 255, 0.7));
+        }
+        
+        .eye {
+            transition: transform 0.3s ease;
+        }
+        
+        .bot:hover .eye {
+            transform: translateX(6px);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .socials {
+                flex-wrap: wrap;
+            }
+            
+            .bot {
+                width: 60px;
+                height: 60px;
+                right: 15px;
+                bottom: 15px;
+            }
+            
+            .bot-icon {
+                width: 30px;
+                height: 30px;
+            }
+        }
     /* section separators */
     .sep{height:1px;background:linear-gradient(90deg, transparent, rgba(0,245,255,.35), transparent);margin:18px 0}
 
