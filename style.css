@@ -71,7 +71,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            border-radius: 12px;
+            border-radius: 50%;
             background: linear-gradient(45deg, 
                 rgba(144, 238, 144, 0.3), 
                 rgba(0, 245, 255, 0.3), 
