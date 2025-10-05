@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileNav = document.getElementById('mobileNav');
     const overlay = document.getElementById('overlay');
     const mobileLinks = mobileNav.querySelectorAll('a');
-    
+
     // Toggle mobile menu
     menuToggle.addEventListener('click', function() {
         mobileNav.classList.toggle('active');
@@ -40,9 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const title = document.getElementById('title');
     if (title) {
         document.addEventListener('mousemove', (e) => {
-            const cx = window.innerWidth/2, cy = window.innerHeight/2;
-            const dx = (e.clientX - cx)/cx, dy = (e.clientY - cy)/cy;
-            title.style.transform = `rotateY(${dx*8}deg) rotateX(${dy*-6}deg)`;
+            const cx = window.innerWidth / 2, cy = window.innerHeight / 2;
+            const dx = (e.clientX - cx) / cx, dy = (e.clientY - cy) / cy;
+            title.style.transform = `rotateY(${dx * 8}deg) rotateX(${dy * -6}deg)`;
         });
     }
 
@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const rect = cta.getBoundingClientRect();
             const d = Math.max(rect.width, rect.height);
             r.style.width = r.style.height = d + 'px';
-            r.style.left = (e.clientX - rect.left - d/2) + 'px';
-            r.style.top = (e.clientY - rect.top - d/2) + 'px';
+            r.style.left = (e.clientX - rect.left - d / 2) + 'px';
+            r.style.top = (e.clientY - rect.top - d / 2) + 'px';
             cta.appendChild(r);
             requestAnimationFrame(() => {
                 r.style.transition = 'transform .6s ease, opacity .8s ease';

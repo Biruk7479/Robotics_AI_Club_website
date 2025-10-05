@@ -97,7 +97,7 @@ header {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: linear-gradient(180deg, rgba(0, 11, 15, .9), rgba(0, 11, 15, 0.7));
+   background: linear-gradient(180deg,rgba(3, 134, 139, 0.2), rgba(0,245,255,.15), rgba(0,245,255,.05));
     border-bottom: 1px solid rgba(0, 245, 255, .08);
     backdrop-filter: blur(8px);
 }
@@ -116,6 +116,7 @@ header {
     gap: 12px;
     font-weight: 700;
     z-index: 1001;
+    font-size: 20px;
 }
 
 /* Logo Styles */
@@ -174,6 +175,7 @@ header {
     transition: all 0.3s ease;
     position: relative;
     font-weight: 500;
+    font-size: 16px;
 }
 
 .desktop-nav a:hover {
@@ -228,7 +230,7 @@ header {
     width: 80%;
     max-width: 300px;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(0, 20, 26, 0.98) 0%, rgba(0, 11, 15, 0.98) 100%);
+    background-color:  rgba(3, 43, 46, 0.989);
     backdrop-filter: blur(10px);
     border-left: 1px solid rgba(0, 245, 255, 0.2);
     display: flex;
@@ -935,7 +937,7 @@ header {
             display: block;
             margin-top: 0.5rem;
             color: #888;
-            font-size: 0.9rem;
+            font-size: 20px;
         }
         
         /* Responsive design */
