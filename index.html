@@ -26,25 +26,45 @@
   
 </head>
 <body>
-  <header>
-    <div class="nav container">
-      <div class="brand">
-                <!-- Your Logo -->
+   <header>
+        <div class="nav container">
+            <div class="brand">
                 <div class="logo-container">
                     <img src="./image/logo.jpg" alt="Robotics & AI Club Logo" class="holographic-logo">
                     <div class="logo-glow"></div>
                 </div>
-        <span class="mono" style="color:#CFFCEE">Robotics & AI Club</span>
-      </div>
-      <nav class="mono">
-        <a href="#about">About</a>
-        <a href="#partners">Partners</a>
-        <a href="#events">Events</a>
-        <a href="#team">Team</a>
-        <a href="#projects">Projects</a>
-      </nav>
-    </div>
-  </header>
+                <span class="mono" style="color:#CFFCEE">Robotics & AI Club</span>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav mono">
+                <a href="#about">About</a>
+                <a href="#partners">Partners</a>
+                <a href="#events">Events</a>
+                <a href="#team">Team</a>
+                <a href="#projects">Projects</a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav mono" id="mobileNav">
+            <a href="#about">About</a>
+            <a href="#partners">Partners</a>
+            <a href="#events">Events</a>
+            <a href="#team">Team</a>
+            <a href="#projects">Projects</a>
+        </nav>
+        
+        <!-- Overlay for mobile menu -->
+        <div class="overlay" id="overlay"></div>
+    </header>
 
   <!-- ===================== HERO ===================== -->
   <section class="hero" id="home" aria-label="Hero">
@@ -770,7 +790,7 @@
               </div>
               <p class="sub">Outreach team, coordinates with companies, and invites students. </p>
               <div class="member-social">
-                <a href="www.linkedin.com/in/nafiyadtesfaye" class="social-link"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/nafiyadtesfaye" class="social-link"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Nafiyadd" class="social-link"><i class="fab fa-github"></i></a>
                 <a href="mailto: nafiyadmekonnen16@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
               </div>

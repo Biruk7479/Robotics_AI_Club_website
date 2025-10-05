@@ -1,99 +1,336 @@
 
-    :root{
-      --green:#90EE90;
-      --teal:#003B4D;
-      --neon:#00F5FF;
-      --ink:#0A0F12;
-      --muted:#6FA3AC;
-      --card:#022733;
-      --glow:0 0 24px rgba(0,245,255,.35), 0 0 60px rgba(144,238,144,.25);
+    :root {
+    --green: #90EE90;
+    --teal: #003B4D;
+    --neon: #00F5FF;
+    --ink: #0A0F12;
+    --muted: #6FA3AC;
+    --card: #022733;
+    --glow: 0 0 24px rgba(0, 245, 255, .35), 0 0 60px rgba(144, 238, 144, .25);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Satoshi', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+    color: #E6FFFD;
+    background: radial-gradient(1200px 600px at 80% -10%, rgba(0, 245, 255, .08), transparent 60%), radial-gradient(900px 400px at 10% 10%, rgba(144, 238, 144, .12), transparent 60%), linear-gradient(180deg, #02171E 0%, #00090C 100%);
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+}
+
+/* --- Global UI helpers --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section {
+    padding: 96px 0;
+}
+
+.h1, h1 {
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 1.05;
+    margin: 0 0 16px;
+}
+
+.h2, h2 {
+    font-size: clamp(28px, 4.5vw, 48px);
+    line-height: 1.1;
+    margin: 0 0 12px;
+}
+
+.h3, h3 {
+    font-size: clamp(20px, 3.2vw, 28px);
+    line-height: 1.2;
+    margin: 0 0 8px;
+}
+
+.sub {
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: .4px;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+.glow {
+    filter: drop-shadow(0 0 6px rgba(0, 245, 255, .5));
+}
+
+.soft-glow {
+    box-shadow: var(--glow);
+}
+
+.pill {
+    border: 1px solid rgba(0, 245, 255, .25);
+    border-radius: 999px;
+    padding: 6px 12px;
+    background: rgba(0, 245, 255, .05);
+}
+
+.grid {
+    display: grid;
+    gap: 24px;
+}
+
+/* ===================== HEADER & NAVIGATION ===================== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(0, 11, 15, .9), rgba(0, 11, 15, 0.7));
+    border-bottom: 1px solid rgba(0, 245, 255, .08);
+    backdrop-filter: blur(8px);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    position: relative;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    z-index: 1001;
+}
+
+/* Logo Styles */
+.logo-container {
+    position: relative;
+    width: 45px;
+    height: 45px;
+}
+
+.holographic-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
+}
+
+.logo-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, rgba(144, 238, 144, 0.3), rgba(0, 245, 255, 0.3), rgba(144, 238, 144, 0.3));
+    filter: blur(8px);
+    opacity: 0.7;
+    z-index: 1;
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.holographic-logo:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+    display: flex;
+    align-items: center;
+}
+
+.desktop-nav a {
+    margin-left: 24px;
+    color: #CFFCEE;
+    opacity: .9;
+    transition: all 0.3s ease;
+    position: relative;
+    font-weight: 500;
+}
+
+.desktop-nav a:hover {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(0, 245, 255, .5);
+}
+
+.desktop-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon);
+    transition: width 0.3s ease;
+}
+
+.desktop-nav a:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #CFFCEE;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 20, 26, 0.98) 0%, rgba(0, 11, 15, 0.98) 100%);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(0, 245, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 100px 30px 30px;
+    transition: right 0.4s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav a {
+    color: #CFFCEE;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+    font-size: 18px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.mobile-nav a:hover {
+    color: var(--neon);
+    text-shadow: 0 0 8px rgba(0, 245, 255, .5);
+    padding-left: 10px;
+}
+
+.mobile-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--neon);
+    transition: width 0.3s ease;
+}
+
+.mobile-nav a:hover::after {
+    width: 100%;
+}
+
+/* Overlay when mobile menu is open */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none !important;
     }
-
-    *{box-sizing:border-box}
-    html,body{height:100%;scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:'Satoshi', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji','Segoe UI Emoji';
-      color:#E6FFFD;
-      background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(0,245,255,.08), transparent 60%),
-        radial-gradient(900px 400px at 10% 10%, rgba(144,238,144,.12), transparent 60%),
-        linear-gradient(180deg, #02171E 0%, #00090C 100%);
-      overflow-x:hidden;
-    }
-
-    a{color:var(--green);text-decoration:none}
-
-    /* --- Global UI helpers --- */
-    .container{max-width:1200px;margin:0 auto;padding:0 24px}
-    .section{padding:96px 0}
-    .h1, h1{font-size:clamp(36px, 6vw, 72px);line-height:1.05;margin:0 0 16px}
-    .h2, h2{font-size:clamp(28px, 4.5vw, 48px);line-height:1.1;margin:0 0 12px}
-    .h3, h3{font-size:clamp(20px, 3.2vw, 28px);line-height:1.2;margin:0 0 8px}
-    .sub{color:var(--muted);font-weight:500;letter-spacing:.4px}
-    .mono{font-family:'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace}
-    .glow{filter:drop-shadow(0 0 6px rgba(0,245,255,.5))}
-    .soft-glow{box-shadow:var(--glow)}
-    .pill{border:1px solid rgba(0,245,255,.25);border-radius:999px;padding:6px 12px;background:rgba(0,245,255,.05)}
-    .grid{display:grid;gap:24px}
-
-    /* --- NAV (optional minimal) --- */
     
-        header{
-            position:fixed;inset:0 0 auto;z-index:50;background:linear-gradient(180deg, rgba(0,11,15,.8), rgba(0,11,15,0));
-            border-bottom:1px solid rgba(0,245,255,.08);backdrop-filter: blur(8px);
-        }
-        .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
-        .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-        
-        /* Logo Styles */
-        .logo-container {
-            position: relative;
-            width: 45px;
-            height: 45px;
-        }
+    .menu-toggle {
+        display: flex;
+    }
+    
+   .mobile-nav {
+    display: flex;
+    z-index: 5; 
+    flex-direction: column;
+  }
+  .mobile-nav a {
+    font-size: 18px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 245, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    display: block;
+  }
+}
 
-        .holographic-logo {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            position: relative;
-            z-index: 2;
-            border: 1px solid rgba(0, 245, 255, 0.4);
-            transition: all 0.4s ease;
-            filter: drop-shadow(0 0 8px rgba(0, 245, 255, 0.3));
-        }
+/* Active state for menu toggle */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
 
-        .logo-glow {
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, 
-                rgba(144, 238, 144, 0.3), 
-                rgba(0, 245, 255, 0.3), 
-                rgba(144, 238, 144, 0.3));
-            filter: blur(8px);
-            opacity: 0.7;
-            z-index: 1;
-            animation: pulse-glow 3s ease-in-out infinite;
-        }
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
 
-        .holographic-logo:hover {
-            transform: scale(1.1) rotate(3deg);
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
-        }
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
 
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-        }
-
-        .nav a{margin-left:18px;color:#CFFCEE;opacity:.9}
-        .nav a:hover{opacity:1;text-shadow:0 0 8px rgba(0,245,255,.5)}
      /* ===================== HERO ===================== */
     .hero {
       position: relative;
