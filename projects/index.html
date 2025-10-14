@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects & Resources — Robotics & AI Club</title>
+  <meta name="description" content="Explore our cutting-edge robotics and AI projects, and discover the equipment available for club members." />
+
+  <!-- Fonts -->
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css"/>
+  <link rel="icon" href="./image/logo.jpg" type="image/jpeg" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="nav container">
+      <div class="brand">
+        <div class="logo-container">
+          <img src="./image/logo.jpg" alt="Robotics & AI Club Logo" class="holographic-logo">
+          <div class="logo-glow"></div>
+        </div>
+        <span class="mono" style="color:#CFFCEE">Robotics & AI Club</span>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="desktop-nav mono">
+        <a href="https://aauaiandrobotics.com">Home</a>
+        <a href="https://aauaiandrobotics.com#about">About</a>
+        <a href="https://aauaiandrobotics.com#team">Team</a>
+        <a href="#projects">Projects</a>
+        <a href="#equipment">Equipment</a>
+      </div>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav mono" id="mobileNav">
+      <a href="https://aauaiandrobotics.com">Home</a>
+      <a href="https://aauaiandrobotics.com#about">About</a>
+      <a href="https://aauaiandrobotics.com#team">Team</a>
+      <a href="#projects">Projects</a>
+      <a href="#equipment">Equipment</a>
+    </nav>
+    
+    <!-- Overlay for mobile menu -->
+    <div class="overlay" id="overlay"></div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-mini">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <h1 class="holo">Our Projects & Resources</h1>
+      <p class="sub" style="max-width:720px; margin: 0 auto;">Pushing boundaries in robotics and AI — explore our flagship projects and the equipment powering student innovation.</p>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <h2 class="h2">Flagship Projects</h2>
+      <p class="sub">Two transformative initiatives driving our club's mission forward</p>
+
+      <div class="projects-grid">
+        <!-- Project 1: AI Study Focus Tracker -->
+        <article class="project-card" data-project="1">
+          <div class="project-header">
+            <div class="project-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div>
+              <h3 class="h3">AI Study Focus Tracker</h3>
+              <span class="project-badge">Computer Vision • Machine Learning</span>
+            </div>
+          </div>
+
+          <div class="project-visual">
+            <svg viewBox="0 0 400 250" class="project-illustration">
+              <defs>
+                <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#90EE90"/>
+                  <stop offset="100%" stop-color="#00F5FF"/>
+                </linearGradient>
+                <radialGradient id="eyeGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.8"/>
+                  <stop offset="100%" stop-color="#00F5FF" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              
+              <!-- Computer Screen -->
+              <rect x="100" y="80" width="200" height="120" rx="8" fill="none" stroke="url(#brainGrad)" stroke-width="2"/>
+              <rect x="110" y="90" width="180" height="90" rx="4" fill="rgba(0, 245, 255, 0.1)"/>
+              
+              <!-- Face Detection -->
+              <circle cx="200" cy="135" r="30" fill="none" stroke="#90EE90" stroke-width="2" stroke-dasharray="5,5"/>
+              <circle cx="190" cy="130" r="5" fill="url(#eyeGlow)"/>
+              <circle cx="210" cy="130" r="5" fill="url(#eyeGlow)"/>
+              <path d="M185,145 Q200,155 215,145" fill="none" stroke="#90EE90" stroke-width="2"/>
+              
+              <!-- Data Points -->
+              <g class="data-points">
+                <circle cx="50" cy="100" r="4" fill="#00F5FF" opacity="0.8"/>
+                <circle cx="70" cy="140" r="4" fill="#90EE90" opacity="0.8"/>
+                <circle cx="330" cy="110" r="4" fill="#00F5FF" opacity="0.8"/>
+                <circle cx="350" cy="150" r="4" fill="#90EE90" opacity="0.8"/>
+                <line x1="50" y1="100" x2="100" y2="120" stroke="#00F5FF" stroke-width="1" opacity="0.4"/>
+                <line x1="70" y1="140" x2="100" y2="140" stroke="#90EE90" stroke-width="1" opacity="0.4"/>
+                <line x1="330" y1="110" x2="300" y2="120" stroke="#00F5FF" stroke-width="1" opacity="0.4"/>
+                <line x1="350" y1="150" x2="300" y2="150" stroke="#90EE90" stroke-width="1" opacity="0.4"/>
+              </g>
+              
+              <!-- Alert Icon -->
+              <g class="alert-indicator">
+                <circle cx="280" cy="100" r="15" fill="rgba(255, 90, 90, 0.2)" stroke="#ff5a5a" stroke-width="2"/>
+                <path d="M280,92 L280,103 M280,108 L280,110" stroke="#ff5a5a" stroke-width="2" stroke-linecap="round"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="project-content">
+            <h4>Overview</h4>
+            <p class="project-description">
+              An AI-powered monitoring tool that uses computer vision to track student focus during study or online learning sessions. This project addresses the critical issue of distractions by employing machine learning algorithms to detect behaviors like yawning, phone use, or looking away from the screen.
+            </p>
+
+            <h4>Key Features</h4>
+            <div class="feature-list">
+              <div class="feature-item">
+                <i class="fas fa-eye"></i>
+                <div>
+                  <strong>Real-time Detection</strong>
+                  <p>OpenCV & Mediapipe for live behavior analysis</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-chart-line"></i>
+                <div>
+                  <strong>Weekly Reports</strong>
+                  <p>Actionable insights to improve learning habits</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-shield-alt"></i>
+                <div>
+                  <strong>Privacy-First</strong>
+                  <p>Local processing ensures data stays secure</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-bell"></i>
+                <div>
+                  <strong>Smart Alerts</strong>
+                  <p>Instant feedback on attention lapses</p>
+                </div>
+              </div>
+            </div>
+
+            <h4>Implementation Timeline</h4>
+            <div class="timeline-compact">
+              <div class="timeline-item">
+                <span class="timeline-phase">Phase 1</span>
+                <span class="timeline-desc">Detection module development</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-phase">Phase 2</span>
+                <span class="timeline-desc">Distraction logic integration</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-phase">Phase 3</span>
+                <span class="timeline-desc">Alerts, logging & reporting interface</span>
+              </div>
+            </div>
+
+            <h4>Expected Outcome</h4>
+            <p class="project-outcome">
+              A functional MVP (Minimum Viable Product) providing students with actionable insights to enhance their study effectiveness and reduce distractions during learning sessions.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech-tag"><i class="fas fa-code"></i> Python</span>
+              <span class="tech-tag"><i class="fas fa-robot"></i> OpenCV</span>
+              <span class="tech-tag"><i class="fas fa-network-wired"></i> Mediapipe</span>
+              <span class="tech-tag"><i class="fas fa-brain"></i> TensorFlow</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Phased ROS Framework -->
+        <article class="project-card" data-project="2">
+          <div class="project-header">
+            <div class="project-icon" style="background: linear-gradient(145deg, #00F5FF, #90EE90);">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div>
+              <h3 class="h3">Phased ROS Framework</h3>
+              <span class="project-badge">Robotics • Simulation • AI Integration</span>
+            </div>
+          </div>
+
+          <div class="project-visual">
+            <svg viewBox="0 0 400 250" class="project-illustration">
+              <defs>
+                <linearGradient id="rosGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00F5FF"/>
+                  <stop offset="100%" stop-color="#90EE90"/>
+                </linearGradient>
+              </defs>
+              
+              <!-- Three Domain Icons -->
+              <g class="domain-group" transform="translate(50, 80)">
+                <!-- Agriculture Drone -->
+                <rect x="0" y="0" width="70" height="70" rx="8" fill="rgba(0, 245, 255, 0.1)" stroke="url(#rosGrad)" stroke-width="2"/>
+                <text x="35" y="25" text-anchor="middle" fill="#90EE90" font-size="24">🌾</text>
+                <text x="35" y="50" text-anchor="middle" fill="#6FA3AC" font-size="10">Agriculture</text>
+                <text x="35" y="63" text-anchor="middle" fill="#6FA3AC" font-size="10">Drone</text>
+              </g>
+              
+              <g class="domain-group" transform="translate(165, 80)">
+                <!-- Smart City Drone -->
+                <rect x="0" y="0" width="70" height="70" rx="8" fill="rgba(0, 245, 255, 0.1)" stroke="url(#rosGrad)" stroke-width="2"/>
+                <text x="35" y="25" text-anchor="middle" fill="#00F5FF" font-size="24">🏙️</text>
+                <text x="35" y="50" text-anchor="middle" fill="#6FA3AC" font-size="10">Smart City</text>
+                <text x="35" y="63" text-anchor="middle" fill="#6FA3AC" font-size="10">Drone</text>
+              </g>
+              
+              <g class="domain-group" transform="translate(280, 80)">
+                <!-- Warehouse Robot -->
+                <rect x="0" y="0" width="70" height="70" rx="8" fill="rgba(0, 245, 255, 0.1)" stroke="url(#rosGrad)" stroke-width="2"/>
+                <text x="35" y="25" text-anchor="middle" fill="#90EE90" font-size="24">📦</text>
+                <text x="35" y="50" text-anchor="middle" fill="#6FA3AC" font-size="10">Warehouse</text>
+                <text x="35" y="63" text-anchor="middle" fill="#6FA3AC" font-size="10">Robot</text>
+              </g>
+              
+              <!-- Connection Lines -->
+              <line x1="85" y1="170" x2="200" y2="200" stroke="url(#rosGrad)" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+              <line x1="200" y1="170" x2="200" y2="200" stroke="url(#rosGrad)" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+              <line x1="315" y1="170" x2="200" y2="200" stroke="url(#rosGrad)" stroke-width="2" stroke-dasharray="5,5" opacity="0.5"/>
+              
+              <!-- ROS Core -->
+              <circle cx="200" cy="205" r="20" fill="rgba(0, 245, 255, 0.2)" stroke="url(#rosGrad)" stroke-width="2"/>
+              <text x="200" y="210" text-anchor="middle" fill="#E7FFFE" font-size="12" font-weight="bold">ROS</text>
+            </svg>
+          </div>
+
+          <div class="project-content">
+            <h4>Overview</h4>
+            <p class="project-description">
+              A modular robotics framework built on ROS (Robot Operating System), designed to progress through simulation, AI integration, and hardware deployment. This initiative spans three potential domains, each offering unique applications of autonomous robotics.
+            </p>
+
+            <h4>Three Potential Domains</h4>
+            <div class="domains-grid">
+              <div class="domain-card">
+                <div class="domain-icon">🌾</div>
+                <h5>Agriculture Drone</h5>
+                <p>Optimize farming with crop scanning, health monitoring, and disease detection using computer vision and multispectral imaging.</p>
+              </div>
+              <div class="domain-card">
+                <div class="domain-icon">🏙️</div>
+                <h5>Smart City Drone</h5>
+                <p>Urban analytics, traffic monitoring, and anomaly detection for intelligent city infrastructure management.</p>
+              </div>
+              <div class="domain-card">
+                <div class="domain-icon">📦</div>
+                <h5>Warehouse Robot</h5>
+                <p>Automation with vision-based tracking, SLAM navigation, and intelligent inventory management systems.</p>
+              </div>
+            </div>
+
+            <h4>Three-Phase Development Plan</h4>
+            <div class="timeline-compact">
+              <div class="timeline-item">
+                <span class="timeline-phase">Phase 1</span>
+                <span class="timeline-desc">Simulation & Module Design (Gazebo/RViz)</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-phase">Phase 2</span>
+                <span class="timeline-desc">AI Integration & Algorithm Development</span>
+              </div>
+              <div class="timeline-item">
+                <span class="timeline-phase">Phase 3</span>
+                <span class="timeline-desc">Real-world Testing & Hardware Deployment</span>
+              </div>
+            </div>
+
+            <h4>Next Steps</h4>
+            <div class="feature-list">
+              <div class="feature-item">
+                <i class="fas fa-users"></i>
+                <div>
+                  <strong>Member Feedback</strong>
+                  <p>Gather input to select focus domain</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-sitemap"></i>
+                <div>
+                  <strong>Form Sub-teams</strong>
+                  <p>Organize specialized development groups</p>
+                </div>
+              </div>
+              <div class="feature-item">
+                <i class="fas fa-drafting-compass"></i>
+                <div>
+                  <strong>Module Design</strong>
+                  <p>Begin simulation setup and architecture</p>
+                </div>
+              </div>
+            </div>
+
+            <h4>Expected Outcome</h4>
+            <p class="project-outcome">
+              A fully functional, modular robotics system that demonstrates real-world autonomous capabilities — from precision agriculture to smart city management to warehouse automation.
+            </p>
+
+            <div class="project-tech">
+              <span class="tech-tag"><i class="fas fa-cogs"></i> ROS/ROS2</span>
+              <span class="tech-tag"><i class="fas fa-cube"></i> Gazebo</span>
+              <span class="tech-tag"><i class="fas fa-code"></i> Python/C++</span>
+              <span class="tech-tag"><i class="fas fa-map"></i> SLAM</span>
+              <span class="tech-tag"><i class="fas fa-brain"></i> Computer Vision</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Equipment Section -->
+  <section class="section equipment-section" id="equipment">
+    <div class="container">
+      <h2 class="h2">Available Equipment</h2>
+      <p class="sub">Everything you need to bring your ideas to life — explore our comprehensive toolkit</p>
+
+      <!-- Equipment Categories -->
+      <div class="equipment-tabs">
+        <button class="equipment-tab active" data-category="all">All Equipment</button>
+        <button class="equipment-tab" data-category="microcontrollers">Microcontrollers</button>
+        <button class="equipment-tab" data-category="sensors">Sensors</button>
+        <button class="equipment-tab" data-category="actuators">Actuators</button>
+        <button class="equipment-tab" data-category="displays">Displays</button>
+        <button class="equipment-tab" data-category="components">Components</button>
+      </div>
+
+      <!-- Equipment Grid -->
+      <div class="equipment-grid" id="equipmentGrid">
+        <!-- Equipment items will be dynamically generated by JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box">
+        <h2 class="h2">Ready to Build the Future?</h2>
+        <p class="sub">Join our community and start working on groundbreaking projects</p>
+        <div class="cta-buttons">
+          <a href="https://aauaiandrobotics.com#register" class="btn-primary">
+            <i class="fas fa-rocket"></i> Join the Club
+          </a>
+          <a href="https://aauaiandrobotics.com#team" class="btn-secondary">
+            <i class="fas fa-users"></i> Meet the Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="text-align:center">
+      <svg class="circuit" viewBox="0 0 1000 200">
+        <g fill="none" stroke="#00F5FF" stroke-opacity=".5" stroke-width="2">
+          <path d="M20,100 H200 q30,0 30,-30 V40 h80 v50 q0,30 30,30 h120 q30,0 30,-30 V40 h80 v50 q0,30 30,30 h120 q30,0 30,-30 V40 h80 v50 q0,30 30,30 h100"/>
+          <circle cx="200" cy="100" r="6" fill="#90EE90"/>
+          <circle cx="460" cy="100" r="6" fill="#90EE90"/>
+          <circle cx="700" cy="100" r="6" fill="#90EE90"/>
+        </g>
+      </svg>
+      <div class="socials">
+        <a href="https://t.me/aau_robotics_ai" class="telegram" aria-label="Telegram">
+          <span class="social-icon" style="color: #00F5FF; font-size: 24px;"><i class="fab fa-telegram"></i></span>
+        </a>
+        <a href="https://www.linkedin.com/company/aau-robotics-and-ai-club/" class="linkedin" aria-label="LinkedIn">
+          <span class="social-icon" style="color: #00F5FF; font-size: 24px;"><i class="fab fa-linkedin"></i></span>
+        </a>
+        <a href="mailto:robotics.ai.club@aait.edu.et" class="email" aria-label="Email">
+          <span class="social-icon" style="color: #00F5FF; font-size: 24px;"><i class="fas fa-envelope"></i></span>
+        </a>
+      </div>
+      <p class="sub">© 2025 Robotics & AI Club — All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="./script.js"></script>
+</body>
+</html>
